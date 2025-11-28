@@ -18,7 +18,7 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
         $outputMessage = (
             "Profile Name: $profileName",
             "Password Info: $passwordInfo"
-        ) -join "`r`n"
+        ) -join [Environment]::NewLine
 
         # Check if password information is found
         if ($passwordInfo -match 'Key Content\s*:\s*(.+)') {
@@ -35,6 +35,7 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
         }
     }
 }
+
 
 
 
