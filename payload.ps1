@@ -18,7 +18,9 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
         $outputMessage = (
             "Profile Name: $profileName",
             "Password Info: $passwordInfo"
-        ) -join [Environment]::NewLine
+        ) -join "`r`n"
+
+        Write-Host $outputMessage
 
         # Check if password information is found
         if ($passwordInfo -match 'Key Content\s*:\s*(.+)') {
