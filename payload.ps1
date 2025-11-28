@@ -14,10 +14,11 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
         $passwordInfo = netsh wlan show profile name="$profileName" key=clear
 
         # Build the message to write to the file
-        $outputMessage = @"
-        Profile Name: $profileName
-        Password Info: $passwordInfo
-        "@
+        # Esto funciona sin importar la indentación
+        $outputMessage = (
+            "Profile Name: $profileName",
+            "Password Info: $passwordInfo"
+        ) -join "`r`n"
 
         # Check if password information is found
         if ($passwordInfo -match 'Key Content\s*:\s*(.+)') {
@@ -34,6 +35,7 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
         }
     }
 }
+
 
 
 
