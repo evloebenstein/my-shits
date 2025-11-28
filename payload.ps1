@@ -15,9 +15,9 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
 
         # Build the message to write to the file
         $outputMessage = @"
-Profile Name: $profileName
-Password Info: $passwordInfo
-"@
+        Profile Name: $profileName
+        Password Info: $passwordInfo
+        "@
 
         # Check if password information is found
         if ($passwordInfo -match 'Key Content\s*:\s*(.+)') {
@@ -34,6 +34,7 @@ Password Info: $passwordInfo
         }
     }
 }
+
 
 
 
