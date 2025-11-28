@@ -41,3 +41,4 @@ $wifiProfiles -split '\r?\n' | ForEach-Object {
 
 
 
+
